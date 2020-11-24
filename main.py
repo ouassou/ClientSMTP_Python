@@ -25,9 +25,14 @@ server.login("rihamouassou@gmail.com", password)
 #start creating the message, we will create a message/mail
 
 message = MIMEMultipart()
-
-print("entrez votre nom :")
-message['From'] = input()
+while True:
+    print("entrez votre nom :")
+    name = input()
+    if any(char.isdigit() for char in name):
+        print (" Try without numbers")
+    else:
+        message['From'] = name
+        break
 
 while True:
     print("a qui vous envoyez ?")
