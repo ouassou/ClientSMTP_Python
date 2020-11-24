@@ -20,13 +20,13 @@ server.ehlo()
 with open("password", "r") as file:
     password = file.read()
 
-server.login("rihamouassou@gmail.com", password)
+server.login("MyMail@gmail.com", password)
 
 #start creating the message, we will create a message/mail
 
 message = MIMEMultipart()
 while True:
-    print("entrez votre nom :")
+    print("Enter Your Name :")
     name = input()
     if any(char.isdigit() for char in name):
         print (" Try without numbers")
@@ -35,7 +35,7 @@ while True:
         break
 
 while True:
-    print("a qui vous envoyez ?")
+    print("Enter destination address :")
     mail = input()
 
     if re.match(r"[^@]+@[^@]+\.[^@]+", mail):
@@ -47,7 +47,7 @@ while True:
         print("Try Again")
 
 
-print("Sujet de votre mail")
+print("Subject :")
 message['Subject'] = input()
 
 with open('message', 'r') as mess:
@@ -70,5 +70,5 @@ pl.add_header('Content-Disposition', f'attachment; filename={filename}')
 message.attach(pl)
 
 text = message.as_string()
-server.sendmail('rihamouassou@gmail.com', 'ri-ha-m@hotmail.fr', text)
+server.sendmail('MyMail@gmail.com', 'MailDes@hotmail.fr', text)
 
