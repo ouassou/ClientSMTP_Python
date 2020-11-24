@@ -25,6 +25,9 @@ server.login("MyMail@gmail.com", password)
 #start creating the message, we will create a message/mail
 
 message = MIMEMultipart()
+
+print("Welcome to SMTP SERVER")
+
 while True:
     print("Enter Your Name :")
     name = input()
